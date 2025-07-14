@@ -80,6 +80,12 @@ $(CC): $(buildroot_defconfig) $(linux_defconfig) $(busybox_defconfig)
 	make -C buildroot host-patchelf
 	echo `realpath buildroot/output/host` > buildroot/output/host/share/buildroot/sdk-location
 	cd buildroot && HOST_DIR=`realpath output/host` STAGING_DIR=`realpath output/host/riscv64-buildroot-linux-gnu/sysroot` TARGET_DIR=`realpath output/target` PER_PACKAGE_DIR=`pwd`/per-package ./support/scripts/fix-rpath host
+	# Copy HERO drivers
+	cp $(ROOT)/../sw/hero-driver/carfield/carfield.ko $(ROOT)/rootfs/root	
+	# Copy libraries
+	mkdir -p $(ROOT)/rootfs/usr/lib
+	cp $(ROOT)/../sw/libhero/lib/libhero_carfield_snitch_cluster.so $(ROOT)/rootfs/usr/lib
+	cp -r $(ROOT)/../sw/libomp/lib/*.so $(ROOT)/rootfs/usr/lib
 
 all: $(CC)
 
