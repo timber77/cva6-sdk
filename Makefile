@@ -49,7 +49,7 @@ tests-mk         		= -j$(NR_CORES)
 buildroot-mk       		= -j$(NR_CORES)
 
 # linux image
-buildroot_defconfig = configs/buildroot$(XLEN)_defconfig_new
+buildroot_defconfig = configs/buildroot$(XLEN)_defconfig_new_new
 linux_defconfig = configs/linux$(XLEN)_defconfig
 busybox_defconfig = configs/busybox$(XLEN).config
 

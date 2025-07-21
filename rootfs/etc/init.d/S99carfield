@@ -2,4 +2,3 @@ echo "Adding carfield.ko"
 insmod /root/carfield.ko
 echo "udhcpc should now work"
 udhcpc -t 5 -n
-
